@@ -340,6 +340,35 @@ document.body.addEventListener('click',function(e){
   }
 },false)
 ```
+### 3.3 数组去重
+::: tip Question:
+请将编写一个函数将 [3, 5, 7, 2, 1, 8, 9, 0, 5, 23, 15, 5, 1, 5, 8] 这样的一个组件中重复的元素去除掉
+:::
+```js
+function splice(){
+    var _arr=[3, 5, 7, 2, 1, 8, 9, 0, 5, 23, 15, 5, 1, 5, 8]
+        for(var i=0;i<_arr.length;i++){
+            for(var n=i+1;n<_arr.length;n++){
+                if(_arr[i]===_arr[n]){
+                    _arr.splice(n--,1);//因为元素数量减少了，如果向前挪动一个下标3个以上的连续重复的元素会有遗漏
+                }
+            }
+        }
+        console.log(_arr);
+    }
+    splice()
+```
+
+### 3.4 评分组件
+::: tip Question:
+可根据传入的评分和总数，返回评星结果（用 ★ 和 ☆ 描述） 2. 评分必选项，四舍五入，总数可选，大于0的整数，默认为5 3. 对于评分为空或小于0、评分大于总数、总数小于0或总数非整数的情况，返回'error' 示例：
+getRate(4, 8); // ★★★★☆☆☆☆  
+getRate(3.4); // ★★★☆☆   
+getRate(5, 2); // 'error' 
+getRate(-2); // 'error'  
+getRate(3, 5.5); // 'error'
+:::
+
 
 ### 4.性能优化
 #### 4.1函数的节流与原生事件
